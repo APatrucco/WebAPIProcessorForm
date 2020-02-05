@@ -39,10 +39,6 @@ namespace WebAPIWindowsApp
         /// </summary>
         private async Task InitializeComponentAsync()
         {
-
-            // 
-            // treeView1
-            // 
             TreeNode treeNode3 = new TreeNode("Users");
 
             this.treeView1 = new TreeView();
@@ -50,7 +46,6 @@ namespace WebAPIWindowsApp
 
             try
             {
-
                 #region Fetch JSON from API.
 
                 string fetchedComments = await client.GetStringAsync("https://jsonplaceholder.typicode.com/comments");
