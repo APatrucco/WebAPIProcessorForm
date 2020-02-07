@@ -2,47 +2,29 @@
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
-using System.Drawing;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace WebAPIWindowsApp
 {
-    partial class treeWindow
+    public partial class TreeWindow : Form
     {
         static readonly HttpClient client = new HttpClient();
 
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
-        private System.ComponentModel.IContainer components = null;
-
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-        protected override void Dispose(bool disposing)
+        public TreeWindow()
         {
-            if (disposing && (components != null))
-            {
-                components.Dispose();
-            }
-            base.Dispose(disposing);
+            InitializeComponent();
         }
 
-        #region Windows Form Designer generated code
-
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
-        private async Task InitializeComponentAsync()
+        private async void TreeWindow_Load(object sender, EventArgs e)
         {
-            TreeNode treeNode3 = new TreeNode("Users");
+            await PopulateTreeViewAsync();
+        }
 
-            this.treeView1 = new TreeView();
-            this.SuspendLayout();
+        private async Task PopulateTreeViewAsync()
+        {
+            TreeNode treeNode1 = new TreeNode("Users");
 
             try
             {
@@ -129,25 +111,25 @@ namespace WebAPIWindowsApp
 
                 foreach (var user in users)
                 {
-                    treeView1.BeginUpdate();
-                    treeNode3.Nodes.Add(user.Name);
-                    treeNode3.Nodes[users.IndexOf(user)].Nodes.Add("Username");
-                    treeNode3.Nodes[users.IndexOf(user)].Nodes[0].Nodes.Add(user.UserName);
-                    treeNode3.Nodes[users.IndexOf(user)].Nodes.Add("Address");
-                    treeNode3.Nodes[users.IndexOf(user)].Nodes[1].Nodes.Add($"Street: {user.Address.Street}");
-                    treeNode3.Nodes[users.IndexOf(user)].Nodes[1].Nodes.Add($"City: {user.Address.City}");
-                    treeNode3.Nodes[users.IndexOf(user)].Nodes[1].Nodes.Add($"ZipCode: {user.Address.ZipCode}");
-                    treeNode3.Nodes[users.IndexOf(user)].Nodes.Add("Comments");
+                    TreeView1.BeginUpdate();
+                    treeNode1.Nodes.Add(user.Name);
+                    treeNode1.Nodes[users.IndexOf(user)].Nodes.Add("Username");
+                    treeNode1.Nodes[users.IndexOf(user)].Nodes[0].Nodes.Add(user.UserName);
+                    treeNode1.Nodes[users.IndexOf(user)].Nodes.Add("Address");
+                    treeNode1.Nodes[users.IndexOf(user)].Nodes[1].Nodes.Add($"Street: {user.Address.Street}");
+                    treeNode1.Nodes[users.IndexOf(user)].Nodes[1].Nodes.Add($"City: {user.Address.City}");
+                    treeNode1.Nodes[users.IndexOf(user)].Nodes[1].Nodes.Add($"ZipCode: {user.Address.ZipCode}");
+                    treeNode1.Nodes[users.IndexOf(user)].Nodes.Add("Comments");
                     foreach (var comment in user.Comments)
                     {
-                        treeNode3.Nodes[users.IndexOf(user)].Nodes[2].Nodes.Add($"Comment from {comment.Email} --- {comment.Body}");
+                        treeNode1.Nodes[users.IndexOf(user)].Nodes[2].Nodes.Add($"Comment from {comment.Email} --- {comment.Body}");
                     }
-                    treeNode3.Nodes[users.IndexOf(user)].Nodes.Add("Posts");
+                    treeNode1.Nodes[users.IndexOf(user)].Nodes.Add("Posts");
                     foreach (var post in user.Posts)
                     {
-                        treeNode3.Nodes[users.IndexOf(user)].Nodes[3].Nodes.Add($"{post.Title} --- {post.Body}");
+                        treeNode1.Nodes[users.IndexOf(user)].Nodes[3].Nodes.Add($"{post.Title} --- {post.Body}");
                     }
-                    treeView1.EndUpdate();
+                    TreeView1.EndUpdate();
                 }
             }
             #region Exception Handling
@@ -162,28 +144,6 @@ namespace WebAPIWindowsApp
             }
 
             #endregion
-
-            this.treeView1.Location = new Point(12, 12);
-            this.treeView1.Name = "treeView1";
-            this.treeView1.Nodes.AddRange(new TreeNode[] { treeNode3 });
-            this.treeView1.Size = new Size(776, 426);
-            this.treeView1.TabIndex = 0;
-            this.treeView1.AfterSelect += new TreeViewEventHandler(this.treeView1_AfterSelect);
-            // 
-            // treeWindow
-            // 
-            this.AutoScaleDimensions = new SizeF(8F, 16F);
-            this.AutoScaleMode = AutoScaleMode.Font;
-            this.ClientSize = new Size(800, 450);
-            this.Controls.Add(this.treeView1);
-            this.Name = "treeWindow";
-            this.Text = "User Tree";
-            this.ResumeLayout(false);
         }
-
-        #endregion
-
-        private TreeView treeView1;
     }
 }
-

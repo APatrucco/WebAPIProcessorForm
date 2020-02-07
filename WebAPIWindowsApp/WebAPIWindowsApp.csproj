@@ -56,16 +56,16 @@
     <Compile Include="Post.cs" />
     <Compile Include="ToDo.cs" />
     <Compile Include="User.cs" />
-    <Compile Include="TreeView.cs">
+    <Compile Include="TreeWindow.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="TreeView.Designer.cs">
-      <DependentUpon>TreeView.cs</DependentUpon>
+    <Compile Include="TreeWindow.Designer.cs">
+      <DependentUpon>TreeWindow.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="TreeView.resx">
-      <DependentUpon>TreeView.cs</DependentUpon>
+    <EmbeddedResource Include="TreeWindow.resx">
+      <DependentUpon>TreeWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
