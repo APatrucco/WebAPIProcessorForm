@@ -24,7 +24,7 @@ namespace WebAPIWindowsApp
 
         private async Task PopulateTreeViewAsync()
         {
-            TreeNode treeNode1 = new TreeNode("Users");
+            TreeNode treeNode1 = TreeView1.TopNode;
 
             try
             {
