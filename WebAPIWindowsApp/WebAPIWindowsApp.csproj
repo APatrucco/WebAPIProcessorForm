@@ -77,6 +77,17 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\Address.datasource" />
+    <None Include="Properties\DataSources\Comment.datasource" />
+    <None Include="Properties\DataSources\Company.datasource" />
+    <None Include="Properties\DataSources\CustomQuery.datasource" />
+    <None Include="Properties\DataSources\Post.datasource" />
+    <None Include="Properties\DataSources\Program.datasource" />
+    <None Include="Properties\DataSources\ToDo.datasource" />
+    <None Include="Properties\DataSources\TreeWindow.datasource" />
+    <None Include="Properties\DataSources\User.datasource" />
+    <None Include="Properties\DataSources\WebAPIWindowsApp.Properties.Resources.datasource" />
+    <None Include="Properties\DataSources\WebAPIWindowsApp.Properties.Settings.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

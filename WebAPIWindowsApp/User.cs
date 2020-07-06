@@ -4,6 +4,15 @@ namespace WebAPIWindowsApp
 {
     public class User
     {
+        public User()
+        {
+        }
+
+        public User(int userId)
+        {
+            ID = userId;
+        }
+
         public int ID { get; set; }
         public string Name { get; set; }
         public string UserName { get; set; }
